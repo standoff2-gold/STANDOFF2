@@ -11,7 +11,7 @@
     
     <style>
 body {
-    background-color: #1a1a1a;
+    background-color: #3d1010;
     color: #e0e0e0;
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -20,22 +20,23 @@ body {
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
-    position: relative; /* Важно для позиционирования overlay */
-    background-image: url('https://img.freepik.com/free-photo/studio-backgrou…616b2e392195eb45a1267819575a1ee7efda5f7bbd&w=1480'); /* URL вашего фонового изображения */
-    background-size: cover; /* Растягивает изображение на всю страницу */
-    background-position: center; /* Центрирует изображение */
-    background-attachment: fixed; /* Фиксирует изображение при прокрутке */
+    position: relative;
+    /* Linia de mai jos a fost schimbată cu noul tău link */
+    background-image: url('https://img.freepik.com/free-photo/studio-background-concept-abstract-empty-light-gradient-purple-studio-room-background-product_1258-67768.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
-/* Оверлей для градиента над фоном */
 .background-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)); /* Мягкий тёмный градиент */
-    z-index: -1; /* Помещаем под контент */
+    /* Gradientul se află în acest bloc, deasupra pozei tale */
+    background: linear-gradient(to bottom, rgba(75, 16, 16, 0.8), rgba(16, 75, 16, 0.8));
+    z-index: -1;
 }
 
 .container {
@@ -43,44 +44,41 @@ body {
     max-width: 800px;
     margin: 50px auto;
     text-align: center;
-    position: relative; /* Чтобы контент был над overlay */
+    position: relative;
     z-index: 1;
 }
 
-/* Hero Section */
 .hero {
     padding: 80px 20px;
-    /* Убираем фоновый градиент, так как теперь есть общий фоновый градиент */
-    background: rgba(0, 0, 0, 0.4); /* Прозрачный фон для читаемости на общем фоне */
+    background: rgba(0, 0, 0, 0.4);
     border-radius: 15px;
     margin-bottom: 40px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Более выраженная тень */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
 .hero h1 {
-    font-size: 3.5em; /* Чуть крупнее */
+    font-size: 3.5em;
     font-weight: 700;
     margin: 0;
-    color: #fff; /* Белый для контраста */
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* Более выраженная тень для текста */
+    color: #fff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
 }
 
 .hero p {
-    font-size: 1.3em; /* Чуть крупнее */
-    color: #c0c0c0; /* Светлее для читаемости */
+    font-size: 1.3em;
+    color: #c0c0c0;
 }
 
-/* Purchase Section */
 .purchase-section {
-    background-color: rgba(36, 36, 36, 0.95); /* Чуть более прозрачный фон */
+    background-color: rgba(36, 36, 36, 0.95);
     padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Более выраженная тень */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
 .purchase-section h2 {
-    font-size: 2.2em; /* Чуть крупнее */
-    color: #ffd700; /* Цвет золота */
+    font-size: 2.2em;
+    color: #4CAF50;
 }
 
 .instructions {
@@ -110,7 +108,7 @@ body {
 
 #gold-form input:focus {
     outline: none;
-    border-color: #ffd700;
+    border-color: #4CAF50;
 }
 
 .gold-options {
@@ -130,68 +128,6 @@ body {
     cursor: pointer;
     transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
     font-size: 1em;
-    font-weight: 700;
-}
-
-.gold-btn span {
-    font-size: 0.9em;
-    color: #b0b0b0;
-    font-weight: 400;
-}
-
-.gold-btn:hover {
-    background-color: #444;
-    transform: translateY(-3px);
-}
-
-.gold-btn.selected {
-    border-color: #ffd700;
-    background-color: #3d3d3d;
-}
-
-#pay-btn {
-    width: 100%;
-    padding: 15px;
-    background: linear-gradient(45deg, #ffd700, #ffae00); /* Золотой градиент для кнопки */
-    color: #1a1a1a;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.2em;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-}
-
-#pay-btn:hover:enabled {
-    background: linear-gradient(45deg, #e6c800, #e09d00); /* Темнее при наведении */
-    transform: translateY(-2px);
-}
-
-#pay-btn:disabled {
-    background-color: #555;
-    color: #999;
-    cursor: not-allowed;
-}
-
-#success-message {
-    padding: 40px;
-    text-align: center;
-    background-color: rgba(36, 36, 36, 0.95);
-    border-radius: 15px;
-}
-
-#success-message h2 {
-    color: #4CAF50; /* Зелёный цвет для успеха */
-}
-
-#success-message p {
-    font-size: 1.2em;
-    line-height: 1.5;
-}
-
-#success-message strong {
-    color: #fff;
-}
     </style>
     </head>
 <body>
@@ -276,6 +212,7 @@ body {
 
 </body>
 </html>
+
 
 
 
