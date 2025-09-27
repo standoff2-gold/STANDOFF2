@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standoff 2 GOLD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+    background-color: #3d1010; /* SCHIMBAT: Culoarea de fundal principală - Roșu închis */
+    color: #e0e0e0;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    position: relative;
+    background-image: url('https://imgur.com/gallery/E0o7yTz');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* SCHIMBAT: Gradient de la roșu la verde */
+    background: linear-gradient(to bottom, rgba(75, 16, 16, 0.8), rgba(16, 75, 16, 0.8)); 
+    z-index: -1;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero {
+    padding: 80px 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.hero h1 {
+    font-size: 3.5em;
+    font-weight: 700;
+    margin: 0;
+    color: #fff;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+}
+
+.hero p {
+    font-size: 1.3em;
+    color: #c0c0c0;
+}
+
+.purchase-section {
+    background-color: rgba(36, 36, 36, 0.95); /* Păstrăm un fundal închis pentru vizibilitate */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.purchase-section h2 {
+    font-size: 2.2em;
+    color: #4CAF50; /* SCHIMBAT: Culoarea verde pentru titlu */
+}
+
+.instructions {
+    color: #b0b0b0;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+#gold-form label {
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 1.1em;
+}
+
+#gold-form input {
+    width: 100%;
+    padding: 15px;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: #e0e0e0;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+#gold-form input:focus {
+    outline: none;
+    border-color: #4CAF50; /* SCHIMBAT: Culoarea verde la focus */
+}
+
+.gold-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.gold-btn {
+    background-color: #333;
+    border: 2px solid #444;
+    color: #fff;
+    padding: 15px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.gold-btn span {
+    font-size: 0.9em;
+    color: #b0b0b0;
+    font-weight: 400;
+}
+
+.gold-btn:hover {
+    background-color: #444;
+    transform: translateY(-3px);
+}
+
+.gold-btn.selected {
+    border-color: #4CAF50; /* SCHIMBAT: Culoarea verde la selectare */
+    background-color: #3d3d3d;
+}
+
+#pay-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(45deg, #4CAF50, #66BB6A); /* SCHIMBAT: Gradient de verde pentru butonul de plată */
+    color: #1a1a1a;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+#pay-btn:hover:enabled {
+    background: linear-gradient(45deg, #388E3C, #4CAF50); /* SCHIMBAT: Nuanță mai închisă la hover */
+    transform: translateY(-2px);
+}
+
+#pay-btn:disabled {
+    background-color: #555;
+    color: #999;
+    cursor: not-allowed;
+}
+
+#success-message {
+    padding: 40px;
+    text-align: center;
+    background-color: rgba(36, 36, 36, 0.95);
+    border-radius: 15px;
+}
+
+#success-message h2 {
+    color: #4CAF50;
+}
+
+#success-message p {
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+#success-message strong {
+    color: #fff;
+}
+        }
+    </style>
+    </head>
+<body>
+
+<div class="background-overlay"></div>
+<div class="container">
+    <section class="hero">
+        <h1>Купить GOLD для Standoff 2</h1>
+        <p>Быстро, безопасно, напрямую в твой аккаунт!</p>
+    </section>
+
+    <section class="purchase-section">
+        <div id="form-container">
+            <h2>Покупка GOLD</h2>
+            <p class="instructions">
+                Чтобы получить GOLD, выполни 3 простых шага:<br>
+                1. Введи свой игровой ID. <br>
+                2. Выбери количество GOLD. <br>
+                3. Нажми "Оплатить" и заверши транзакцию.
+            </p>
+
+            <form id="gold-form">
+                <label for="game-id">Ваш ID из Standoff 2:</label>
+                <input type="text" id="game-id" name="game-id" placeholder="Например: 12345678" required>
+
+                <div class="gold-options">
+                    <button type="button" class="gold-btn" data-gold="500" data-rub="215">500 GOLD<br><span>215 RUB</span></button>
+                    <button type="button" class="gold-btn" data-gold="1000" data-rub="545">1000 GOLD<br><span>545 RUB</span></button>
+                    <button type="button" class="gold-btn" data-gold="2000" data-rub="1560">2000 GOLD<br><span>1560 RUB</span></button>
+                    <button type="button" class="gold-btn" data-gold="3000" data-rub="2351">3000 GOLD<br><span>2351 RUB</span></button>
+                    <button type="button" class="gold-btn" data-gold="5000" data-rub="4115">5000 GOLD<br><span>4115 RUB</span></button>
+                </div>
+
+                <button type="submit" id="pay-btn" disabled>Оплатить</button>
+            </form>
+        </div>
+
+        <div id="success-message" style="display: none;">
+            <h2>ВАШ ЗАКАЗ ПРИНЯТ!</h2>
+            <p><strong> Валюта GOLD будет доставлена на ваш аккаунт в течение 24 часов. Пожалуйста, подождите.</strong></p>
+        </div>
+    </section>
+</div>
+
+<script>
+    const gameIdInput = document.getElementById('game-id');
+    const goldButtons = document.querySelectorAll('.gold-btn');
+    const payBtn = document.getElementById('pay-btn');
+    const formContainer = document.getElementById('form-container');
+    const successMessage = document.getElementById('success-message');
+
+    let selectedGold = null;
+    let selectedRub = null;
+
+    goldButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            goldButtons.forEach(btn => btn.classList.remove('selected'));
+            button.classList.add('selected');
+            selectedGold = button.dataset.gold;
+            selectedRub = button.dataset.rub;
+            payBtn.disabled = false;
+        });
+    });
+
+    payBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const gameId = gameIdInput.value.trim();
+
+        if (gameId === '' || !selectedGold) {
+            alert('Пожалуйста, введите ID и выберите количество GOLD.');
+            return;
+        }
+
+        const donationUrl = `https://dalink.to/standoff2_g0ld?sum=${selectedRub}&comment=${gameId}`;
+        
+        window.open(donationUrl, '_blank');
+
+        formContainer.style.display = 'none';
+        successMessage.style.display = 'block';
+    });
+</script>
+
+</body>
+</html>
